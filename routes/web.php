@@ -20,11 +20,28 @@ $app->group([], function($app)
 {
     $app->get('user','UserController@index');
   
-    $app->get('user/{id}','UserController@getuser');
+    $app->get('user/{id}','UserController@getUser');
       
     $app->post('user','UserController@createUser');
       
     $app->put('user/{id}','UserController@updateUser');
       
     $app->delete('user/{id}','UserController@deleteUser');
+});
+
+$app->group([], function($app)
+{
+    $app->get('game','GameController@index');
+  
+    $app->get('game/{id}','GameController@getgame');
+      
+    $app->post('game','GameController@creategame');
+      
+    $app->put('game/{id}','GameController@updategame');
+
+    $app->put('game/{id}/adduser/{user_id}','GameController@addUser');
+
+    $app->put('game/{id}/removeuser/{user_id}','GameController@removeUser');    
+      
+    $app->delete('game/{id}','GameController@deletegame');
 });

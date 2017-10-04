@@ -33,4 +33,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function data() {
         return $this->hasOne('App\UserData');
     }
+
+    public function games() {
+        return $this->hasMany('App\Game');
+    }
 }
